@@ -103,13 +103,7 @@ def gcl_of : Stmt → GCL.Stmt
 
 /- 1.4. 在上述 `gcl_of` 的定义中，`skip` 被翻译为 `assert (fun _ ↦ True)`。通过观察这两种结构的大步语义，我们可以确信这种翻译是合理的。你能想到其他正确的方式来定义 `skip` 的情况吗？ -/
 
--- 请将以下技术文档翻译成中文，保持专业术语准确：
-
-**原文：**
-The system architecture is designed to support high availability and scalability. It consists of multiple microservices that communicate via RESTful APIs. Each microservice is deployed in a Docker container and orchestrated using Kubernetes. The database layer utilizes a distributed SQL database to ensure data consistency and fault tolerance. Additionally, the system integrates with third-party services through OAuth 2.0 for secure authentication and authorization.
-
-**翻译：**
-系统架构设计旨在支持高可用性和可扩展性。它由多个通过RESTful API进行通信的微服务组成。每个微服务都部署在Docker容器中，并使用Kubernetes进行编排。数据库层采用分布式SQL数据库，以确保数据一致性和容错性。此外，系统通过OAuth 2.0与第三方服务集成，以实现安全的身份验证和授权。
+-- 在这里写下你的答案
 
 /- ## 问题2：程序等价性
 

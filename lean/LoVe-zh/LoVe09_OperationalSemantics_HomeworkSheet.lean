@@ -104,13 +104,8 @@ inductive Matches {α : Type} : Regex α → List α → Prop
 
 2.1（1 分）。解释为什么没有针对 `nothing` 的规则。 -/
 
--- 请将以下技术文档翻译成中文，保持专业术语准确：
+-- 在这里写下你的答案
 
-**原文：**
-The API provides a set of endpoints that allow developers to interact with the system programmatically. These endpoints support CRUD (Create, Read, Update, Delete) operations on various resources, such as users, products, and orders. Authentication is required for most endpoints, and it is handled via OAuth 2.0. The API also supports pagination, filtering, and sorting to efficiently manage large datasets. Error responses are standardized and include detailed error codes and messages to assist in debugging.
-
-**翻译：**
-该API提供了一组端点，允许开发者以编程方式与系统进行交互。这些端点支持对多种资源（如用户、产品和订单）执行CRUD（创建、读取、更新、删除）操作。大多数端点需要身份验证，并通过OAuth 2.0进行处理。API还支持分页、过滤和排序功能，以高效管理大型数据集。错误响应已标准化，并包含详细的错误代码和消息，以帮助调试。
 /- 2.2 （4分）。证明以下反演规则。 -/
 
 @[simp] theorem Matches_atom {α : Type} {s : List α} {a : α} :

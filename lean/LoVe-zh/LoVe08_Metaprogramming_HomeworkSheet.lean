@@ -53,28 +53,6 @@ theorem abcd (a b c d : Prop) :
         a b c d : Prop
         a_1 : a
         a_2 : d
-        ⊢ c
-
-翻译如下：
-
-证明状态应大致如下：
-
-        case left
-        a b c d : 命题
-        a_1 : a
-        a_2 : b
-        ⊢ 假
-
-        case right.mp
-        a b c d : 命题
-        a_1 : a
-        a_2 : c
-        ⊢ d
-
-        case right.mpr
-        a b c d : 命题
-        a_1 : a
-        a_2 : d
         ⊢ c -/
     repeat' sorry
 
@@ -107,8 +85,8 @@ theorem abcdef (a b c d e f : Prop) (P : ℕ → Prop)
   /- 证明状态应大致如下：
 
       case intro.intro.intro
-      a b c d e f : 命题
-      P : ℕ → 命题
+      a b c d e f : Prop
+      P : ℕ → Prop
       hneg : ¬a
       hor : c ∨ d
       himp : b → e
@@ -118,12 +96,7 @@ theorem abcdef (a b c d e f : Prop) (P : ℕ → Prop)
       h : P w
       left_1 : b
       right : c
-      ⊢ False
-
-翻译说明：
-1. 保留了所有专业术语，如 `Prop`（命题）、`ℕ`（自然数）、`¬`（非）、`∨`（或）、`→`（蕴含）、`↔`（等价）等。
-2. 保持了原文的结构和格式，确保翻译后的文档与原文在逻辑上一致。
-3. 使用了中文数学符号和术语，确保专业性和准确性。 -/
+      ⊢ False -/
     sorry
 
 /- 1.3 （2分）。实现一个名为 `safe` 的策略，该策略首先在所有目标上调用 `safe_intros`，然后在所有生成的子目标上调用 `safe_cases`，最后在所有生成的子子目标上尝试 `assumption`。 -/
@@ -140,8 +113,8 @@ theorem abcdef_abcd (a b c d e f : Prop) (P : ℕ → Prop)
     /- 证明状态应大致如下：
 
         case left.intro.intro.intro
-        a b c d e f : 命题
-        P : ℕ → 命题
+        a b c d e f : Prop
+        P : ℕ → Prop
         hneg : ¬a
         hor : c ∨ d
         himp : b → e
@@ -156,8 +129,8 @@ theorem abcdef_abcd (a b c d e f : Prop) (P : ℕ → Prop)
         ⊢ 假
 
         case right.mp.intro.intro.intro
-        a b c d e f : 命题
-        P : ℕ → 命题
+        a b c d e f : Prop
+        P : ℕ → Prop
         hneg : ¬a
         hor : c ∨ d
         himp : b → e

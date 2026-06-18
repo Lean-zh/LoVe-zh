@@ -72,13 +72,7 @@ def sum257Bind (ns : List ℕ) : Option ℕ :=
 
 语法糖：
 
-    `ma >>= f` := `bind ma f`
-
-翻译说明：
-- `bind` 和 `pure` 是函数式编程中的常见术语，通常用于描述单子（Monad）的操作，因此保留原文。
-- `Option.none` 和 `Option.some` 是特定编程语言（如 Scala 或 Haskell）中的构造函数，表示可选类型的空值和有值情况，保留原文以保持术语的准确性。
-- `>>=` 是单子绑定操作的符号，通常用于表示将单子值与函数结合的操作，保留原文符号以保持其特定含义。
-- `:=` 表示定义或赋值，保留原文符号以保持其数学或编程中的特定含义。 -/
+    `ma >>= f` := `bind ma f` -/
 
 def sum257Op (ns : List ℕ) : Option ℕ :=
   nth ns 1 >>=
@@ -87,45 +81,17 @@ def sum257Op (ns : List ℕ) : Option ℕ :=
         fun n₇ ↦ pure (n₂ + n₅ + n₇)
 
 /- 语法糖：
+    do
+      let a ← ma
+      t
+    :=
+    ma >>= (fun a ↦ t)
 
-```plaintext
-do
-  let a ← ma
-  t
-:=
-ma >>= (fun a ↦ t)
-
-do
-  ma
-  t
-:=
-ma >>= (fun _ ↦ t)
-```
-
-翻译为中文：
-
-语法糖：
-
-```plaintext
-do
-  let a ← ma
-  t
-:=
-ma >>= (fun a ↦ t)
-
-do
-  ma
-  t
-:=
-ma >>= (fun _ ↦ t)
-```
-
-解释：
-- **语法糖**：指在编程语言中，为了简化代码书写而引入的语法结构，其本质可以通过更基础的语法结构来实现。
-- **do**：一种语法结构，通常用于简化单子（Monad）操作的书写。
-- **let a ← ma**：表示从单子操作 `ma` 中提取值并绑定到变量 `a`。
-- **ma >>= (fun a ↦ t)**：表示将单子操作 `ma` 的结果传递给一个匿名函数 `(fun a ↦ t)`，其中 `a` 是 `ma` 的结果，`t` 是后续的操作。
-- **ma >>= (fun _ ↦ t)**：表示忽略单子操作 `ma` 的结果，直接执行后续操作 `t`。 -/
+    do
+      ma
+      t
+    :=
+    ma >>= (fun _ ↦ t) -/
 
 def sum257Dos (ns : List ℕ) : Option ℕ :=
   do

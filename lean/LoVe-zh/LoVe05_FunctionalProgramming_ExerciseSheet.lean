@@ -158,29 +158,16 @@ theorem take_drop {α : Type} :
 
     Term  ::=  `var` String        -- 变量（例如，`x`）
             |  `lam` String Term   -- λ-表达式（例如，`λx. t`）
-            |  `app` Term Term     -- 应用（例如，`t u`）
+            |  `app` Term Term     -- 应用（例如，`t u`）-/
 
-### 翻译说明：
-- **Term**：项
-- **var**：变量
-- **lam**：λ-表达式
-- **app**：应用
-- **String**：字符串
-- **inductive type**：归纳类型
-- **untyped λ-calculus**：无类型 λ-演算
+-- 在这里写下你的定义
 
-该问题要求定义一个归纳类型来表示无类型 λ-演算中的项，这些项可以是变量、λ-表达式或应用。 -/`Term` 的文本表示注册为 `Repr` 类型类的一个实例。确保提供足够的括号以保证输出的无歧义性。 -/
+/- 3.2 （**可选**）。为类型 `Term` 注册一个文本表示，使其成为 `Repr` 类型类的一个实例。
+请确保添加足够的括号，以保证输出是无歧义的。 -/
 
 def Term.repr : Term → String
--- 请将以下技术文档翻译成中文，保持专业术语准确：
+-- 在这里写下你的答案
 
-**原文：**
-
-The system architecture is designed to support high availability and scalability. It consists of multiple layers, including the presentation layer, business logic layer, and data access layer. The presentation layer is responsible for handling user interactions and rendering the user interface. The business logic layer processes the core functionalities and enforces business rules. The data access layer manages the interaction with the database, ensuring data integrity and security.
-
-**翻译：**
-
-系统架构设计旨在支持高可用性和可扩展性。它由多个层次组成，包括表示层、业务逻辑层和数据访问层。表示层负责处理用户交互并渲染用户界面。业务逻辑层处理核心功能并执行业务规则。数据访问层管理与数据库的交互，确保数据的完整性和安全性。
 instance Term.Repr : Repr Term :=
   { reprPrec := fun t prec ↦ Term.repr t }
 
