@@ -21,9 +21,7 @@ namespace LoVe
 
 #print Nat
 
-/- ## 技术文档翻译
-
-### 格言：
+/- 原则：
 
 * **无冗余**：类型中不包含无法通过构造函数表达的值。
 * **无混淆**：通过不同方式构建的值是不同的。
@@ -34,8 +32,6 @@ namespace LoVe
 * **无混淆**确保了 `Nat.zero` ≠ `Nat.succ n`。
 
 此外，归纳类型的值始终是有限的。`Nat.succ (Nat.succ …)` 不是一个值。
-
----
 
 ## 结构归纳法
 
@@ -92,19 +88,6 @@ def factThreeCases : ℕ → ℕ
 
 /- -- 失败
 def illegal : ℕ → ℕ
-  | n => illegal n + 1
-
-翻译为中文：
-
--- 失败
-def illegal : ℕ → ℕ
-  | n => illegal n + 1
-
-在这个技术文档中，`illegal` 是一个递归函数，它接受一个自然数 `n` 并返回 `illegal n + 1`。由于这个函数没有终止条件，它将无限递归下去，导致程序失败。 -/文档中，"fails" 通常指系统、设备或组件未能按预期工作或达到设计要求的状态。可以翻译为“故障”或“失效”，具体取决于上下文。例如：
-- **System fails**：系统故障
-- **Component fails**：组件失效
-
-如果需要更具体的上下文，请提供完整句子或段落，以便更准确地翻译。def illegal : ℕ → ℕ
   | n => illegal n + 1
 -/
 

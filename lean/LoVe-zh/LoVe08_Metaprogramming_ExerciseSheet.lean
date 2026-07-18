@@ -43,12 +43,12 @@ theorem abcd_bd (a b c d : Prop) (h : a ∧ (b ∧ c) ∧ d) :
     /- 证明状态应如下所示：
 
         case left
-        a b c d: 命题
+        a b c d: Prop
         h : a ∧ (b ∧ c) ∧ d
         ⊢ b
 
         case right
-        a b c d : 命题
+        a b c d : Prop
         h : a ∧ (b ∧ c) ∧ d
         ⊢ d -/
     repeat' sorry
@@ -76,30 +76,6 @@ theorem abcd_bacb (a b c d : Prop) (h : a ∧ (b ∧ c) ∧ d) :
 
         case right.right.right
         a b c d : Prop
-        h : a ∧ (b ∧ c) ∧ d
-        ⊢ b
-
-翻译后的中文如下：
-
-证明状态应如下所示：
-
-        情况 left
-        a b c d : 命题
-        h : a ∧ (b ∧ c) ∧ d
-        ⊢ b
-
-        情况 right.left
-        a b c d : 命题
-        h : a ∧ (b ∧ c) ∧ d
-        ⊢ a
-
-        情况 right.right.left
-        a b c d : 命题
-        h : a ∧ (b ∧ c) ∧ d
-        ⊢ c
-
-        情况 right.right.right
-        a b c d : 命题
         h : a ∧ (b ∧ c) ∧ d
         ⊢ b -/
     repeat' sorry
@@ -141,24 +117,7 @@ theorem abcd_bd_again (a b c d : Prop) :
         right : d
         left_1 : b
         right_1 : c
-        ⊢ b ∧ d
-
-翻译为中文：
-
-证明状态应如下所示：
-
-        case intro.intro.intro
-        a b c d : 命题
-        left : a
-        right : d
-        left_1 : b
-        right_1 : c
-        ⊢ b ∧ d
-
-其中：
-- `Prop` 翻译为“命题”
-- `⊢` 表示“推导出”或“需要证明”
-- `∧` 表示逻辑“与” -/
+        ⊢ b ∧ d -/
     sorry
 
 /- 1.3. 实现一个 `destro_and` 策略，该策略首先调用 `cases_and`，然后调用 `intro_and`，接着尝试通过 `assumption` 直接证明所有可以立即解决的子目标。 -/
@@ -185,25 +144,12 @@ theorem abd_bacb_again (a b c d : Prop) (h : a ∧ b ∧ d) :
         left : a
         left_1 : b
         right : d
-        ⊢ c
+        ⊢ c -/
+    sorry   -- 无法证明
 
-解释：
-- `case intro.intro.right.right.left`：表示当前处理的证明分支路径。
-- `a b c d : 命题`：定义了四个命题变量 `a`, `b`, `c`, `d`。
-- `left : a`：假设 `a` 为真。
-- `left_1 : b`：假设 `b` 为真。
-- `right : d`：假设 `d` 为真。
-- `⊢ c`：当前需要证明的目标是 `c`。 -/
-    sorry   -- 不可证明的
-
-在技术文档中，"unprovable" 通常用于描述某个命题、定理或陈述在特定逻辑系统或理论框架内无法被证明为真或假。这个术语在数学、计算机科学和逻辑学中尤为重要，特别是在讨论形式系统、算法复杂性或理论计算机科学时。
-
-例如，在哥德尔不完备定理的背景下，某些命题在给定的公理系统中是不可证明的，这意味着无法通过该系统的规则和公理来证明这些命题的真伪。
-
-因此，"unprovable" 在中文技术文档中应翻译为“不可证明的”，以保持其专业性和准确性。
 /- 1.4. 提供更多关于 `destro_and` 的示例，以验证其在更复杂的情况下也能按预期工作。 -/
 
--- 请输入您的示例内容
+-- 在这里写下你的示例
 
 /- ## 问题2：定理查找器
 

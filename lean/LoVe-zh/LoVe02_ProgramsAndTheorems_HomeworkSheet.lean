@@ -43,27 +43,5 @@ def sum : List ℕ → ℕ :=
 
 尝试为这些定理赋予有意义的名称。使用 `sorry` 作为证明。
 
-翻译如下：
-
-2.2 （3分）。将以下关于 `sum` 的性质陈述为定理（无需证明）。示意如下：
-
-     sum (snoc ms n) = n + sum ms
-     sum (ms ++ ns) = sum ms + sum ns
-     sum (reverse ns) = sum ns
-
-尝试为这些定理赋予有意义的名称。使用 `sorry` 作为证明。
-
-### 定理命名建议：
-1. **`sum_snoc`**: `sum (snoc ms n) = n + sum ms`
-2. **`sum_concat`**: `sum (ms ++ ns) = sum ms + sum ns`
-3. **`sum_reverse`**: `sum (reverse ns) = sum ns`
-
-### 示例：
-```lean
-theorem sum_snoc : sum (snoc ms n) = n + sum ms := sorry
-theorem sum_concat : sum (ms ++ ns) = sum ms + sum ns := sorry
-theorem sum_reverse : sum (reverse ns) = sum ns := sorry
-``` -/
-
 -- 在此输入您的定理陈述
 end LoVe

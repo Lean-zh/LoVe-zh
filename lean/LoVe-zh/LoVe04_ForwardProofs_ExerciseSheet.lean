@@ -61,8 +61,7 @@ theorem proj_fst (a : Prop) :
     a → a → a :=
   sorry
 
-/- 请将以下技术文档翻译成中文，保持专业术语准确：
-请提供一个与 `proj_fst` 不同的答案。 -/
+/- 请提供一个与 `proj_fst` 不同的答案。 -/
 
 theorem proj_snd (a : Prop) :
     a → a → a :=

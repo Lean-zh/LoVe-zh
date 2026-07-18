@@ -54,30 +54,15 @@ def someEnv : String → ℤ
 def simplify : AExp → AExp
   | AExp.add (AExp.num 0) e₂ => simplify e₂
   | AExp.add e₁ (AExp.num 0) => simplify e₁
-  -- 在此处插入缺失的案例  -- 以下是“catch-all cases”的中文翻译：
-
-**兜底情况** 或 **通配情况**
-
-在技术文档中，“catch-all cases”通常指一种默认或通用的处理方式，用于涵盖所有未明确指定的情况。这种设计模式常用于编程中的条件判断或异常处理，确保程序在遇到未预见的输入或状态时仍能正常运行。
-
-例如：
-- 在编程中，`switch`语句的`default`分支可以视为一种“catch-all case”。
-- 在正则表达式中，`.*`可以匹配任意字符，也是一种“catch-all”的用法。
-
-根据具体上下文，也可以翻译为 **默认情况** 或 **通用情况**。  | AExp.num i               => AExp.num i
-  | AExp.var x               => AExp.var x
-  | AExp.add e₁ e₂           => AExp.add (simplify e₁) (simplify e₂)
-  | AExp.sub e₁ e₂           => AExp.sub (simplify e₁) (simplify e₂)
-  | AExp.mul e₁ e₂           => AExp.mul (simplify e₁) (simplify e₂)
-  | AExp.div e₁ e₂           => AExp.div (simplify e₁) (simplify e₂)
+  -- 在此处插入缺失的案例
 
 /- 2.3. `simplify` 函数是否正确？事实上，如何定义它的正确与否？直观上，`simplify` 要被认为是正确的，它必须返回一个算术表达式，该表达式在求值时产生的数值与原始表达式相同。
 
 给定一个环境 `env` 和一个表达式 `e`，请陈述（无需证明）简化后的 `e` 的值与简化前的 `e` 的值相同的性质。 -/
 
 theorem simplify_correct (env : String → ℤ) (e : AExp) :
-  True :=   -- 将 `True` 替换为您的定理陈述  sorry   -- 请将以下技术文档翻译成中文，保持专业术语准确：
-保留 `sorry` 不变
+    True :=   -- 将 `True` 替换为您的定理陈述
+  sorry   -- 保留 `sorry` 不变
 
 /- ## 问题 3（**可选**）：Map
 

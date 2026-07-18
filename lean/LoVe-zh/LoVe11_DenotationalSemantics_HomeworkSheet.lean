@@ -89,19 +89,10 @@ def portmanteau : List ℕ → List ℕ → List (List ℕ)
 #eval portmanteau [0, 1] [2, 3, 4]
 #eval portmanteau [0, 1, 2, 1, 2] [1, 2, 1, 2, 3, 4]
 
-/- 1.2 （1个附加分）。将 `portmanteau` 程序从 `List` 单子转换为 `Nondet` 单子。
-
-### 翻译说明：
-- **portmanteau**：在编程上下文中，通常指一个组合词或混合词的程序，这里保留原文。
-- **List monad**：列表单子，是函数式编程中的一个概念，用于处理列表的上下文计算。
-- **Nondet monad**：非确定性单子，用于表示非确定性计算，通常用于搜索或回溯算法中。
-
-### 翻译后的内容：
-1.2 （1个附加分）。将 `portmanteau` 程序从 `List` 单子转换为 `Nondet` 单子。 -/
+/- 1.2 （1个附加分）。将 `portmanteau` 程序从 `List` 单子转换为 `Nondet` 单子。 -/
 
 def nondetPortmanteau : List ℕ → List ℕ → Nondet (List ℕ) :=
   sorry
-
 
 /- ## 问题 2（5 分 + 1 分附加分）：非确定性，指称语义
 

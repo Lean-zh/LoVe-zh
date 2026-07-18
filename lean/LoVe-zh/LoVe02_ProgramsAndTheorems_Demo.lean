@@ -158,20 +158,7 @@ def appendImplicit {α : Type} : List α → List α → List α
 
     `[]`          := `List.nil`
     `x :: xs`     := `List.cons x xs`
-    `[x₁, …, xN]` := `x₁ :: … :: xN :: []`
-
-翻译为中文：
-
-别名：
-
-    `[]`          := `List.nil`
-    `x :: xs`     := `List.cons x xs`
-    `[x₁, …, xN]` := `x₁ :: … :: xN :: []`
-
-解释：
-- `[]` 表示空列表，等同于 `List.nil`。
-- `x :: xs` 表示将元素 `x` 添加到列表 `xs` 的开头，等同于 `List.cons x xs`。
-- `[x₁, …, xN]` 表示一个包含元素 `x₁` 到 `xN` 的列表，等同于 `x₁ :: … :: xN :: []`。 -/
+    `[x₁, …, xN]` := `x₁ :: … :: xN :: []` -/
 
 def appendPretty {α : Type} : List α → List α → List α
   | [],      ys => ys

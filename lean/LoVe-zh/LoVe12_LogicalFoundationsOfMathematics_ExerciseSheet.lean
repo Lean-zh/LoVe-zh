@@ -48,11 +48,7 @@ theorem List.length_add :
 def Vector.add {n : ℕ} : Vector ℤ n → Vector ℤ n → Vector ℤ n :=
   sorry
 
-/- 1.3. 证明 `List.add` 和 `Vector.add` 是可交换的。
-
-**翻译说明：**
-- **List.add** 和 **Vector.add** 是编程中的方法名，通常表示向列表或向量中添加元素的操作。在翻译时保留了原文的术语，以确保技术准确性。
-- **commutative** 翻译为“可交换的”，这是数学和计算机科学中的标准术语，表示操作的顺序不影响最终结果。 -/
+/- 1.3. 证明 `List.add` 和 `Vector.add` 是可交换的。-/
 
 theorem List.add.comm :
     ∀xs ys, List.add xs ys = List.add ys xs :=

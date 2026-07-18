@@ -138,13 +138,7 @@ def starRec {α : Type} (R : α → α → Bool) :
 
 /- -- 失败
 归纳定义 Illegal : Prop 其中
-  | 引入 : ¬ Illegal → Illegal -/"fails" 通常指系统、设备或操作未能按预期执行，导致功能中断或性能下降。根据上下文，可以翻译为“失败”、“故障”或“失效”。例如：
-- **系统失败 (System fails)**：指系统无法正常运行或完成指定任务。
-- **硬件故障 (Hardware fails)**：指硬件设备出现故障，无法正常工作。
-- **操作失效 (Operation fails)**：指某项操作未能成功执行。
-
-如果需要更具体的翻译，请提供完整的句子或上下文。inductive Illegal : Prop where
-  | intro : ¬ Illegal → Illegal
+  | 引入 : ¬ Illegal → Illegal
 -/
 
 
@@ -411,31 +405,13 @@ inductive Palindrome {α : Type} : List α → Prop where
   | sandwich (x : α) (xs : List α) (hxs : Palindrome xs) :
     Palindrome ([x] ++ xs ++ [x])
 
-/- 以下是技术文档的中文翻译，保持专业术语准确：
-
-```plaintext
+/-
 -- 失败
 def palindromeRec {α : Type} : List α → Bool
   | []                 => true  -- 空列表是回文
   | [_]                => true  -- 单元素列表是回文
   | ([x] ++ xs ++ [x]) => palindromeRec xs  -- 如果列表的首尾元素相同，递归检查中间部分
   | _                  => false  -- 其他情况不是回文
-```
-
-### 解释：
-- `palindromeRec` 是一个递归函数，用于判断一个列表是否为回文。
-- `α : Type` 表示类型参数，`List α` 表示元素类型为 `α` 的列表。
-- `[]` 表示空列表，`[_]` 表示单元素列表。
-- `([x] ++ xs ++ [x])` 表示列表的首尾元素相同，中间部分为 `xs`。
-- 如果列表的首尾元素相同，则递归检查中间部分 `xs`。
-- 其他情况返回 `false`，表示列表不是回文。 -/The system fails to start" 可译为 **“系统启动失败”**。
-- "If the sensor fails, the backup system will activate" 可译为 **“如果传感器失效，备用系统将启动”**。
-
-请根据具体场景选择合适的术语。def palindromeRec {α : Type} : List α → Bool
-  | []                 => true
-  | [_]                => true
-  | ([x] ++ xs ++ [x]) => palindromeRec xs
-  | _                  => false
 -/
 
 theorem Palindrome_aa {α : Type} (a : α) :
@@ -458,36 +434,7 @@ theorem Palindrome_reverse {α : Type} (xs : List α)
         exact Palindrome.sandwich _ _ ih }
 
 
-/- ### 满二叉树
-
-**满二叉树**（Full Binary Tree）是一种特殊的二叉树结构，其中每个节点要么是叶子节点（没有子节点），要么恰好有两个子节点（左子节点和右子节点）。换句话说，满二叉树中不存在只有一个子节点的节点。
-
-#### 特点
-1. **节点数量**：如果一个满二叉树的深度为 \( h \)，那么它的节点总数为 \( 2^h - 1 \)。
-2. **叶子节点**：所有叶子节点都位于同一层级。
-3. **平衡性**：满二叉树是一种高度平衡的二叉树，因为它的左右子树的高度差始终为0。
-
-#### 应用场景
-满二叉树常用于以下场景：
-- **堆数据结构**：二叉堆（如最大堆或最小堆）通常基于满二叉树实现。
-- **哈夫曼编码**：在数据压缩中，哈夫曼树通常是一个满二叉树。
-- **完全二叉树的基础**：满二叉树是完全二叉树的一种特殊情况。
-
-#### 示例
-以下是一个深度为3的满二叉树的示例：
-
-```
-        A
-       / \
-      B   C
-     / \ / \
-    D  E F  G
-```
-
-在这个例子中，节点A、B、C都有两个子节点，而节点D、E、F、G都是叶子节点。
-
-#### 总结
-满二叉树是一种结构严谨的二叉树，具有明确的节点数量和层级关系。它在计算机科学中有着广泛的应用，尤其是在需要高效存储和检索数据的场景中。 -/
+/- ### 满二叉树 -/
 
 #check Tree
 
