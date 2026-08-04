@@ -10,7 +10,9 @@ import LoVe.LoVe06_InductivePredicates_Demo
 
 
 set_option autoImplicit false
-set_option tactic.hygienic false
+set_option linter.unusedVariables false
+set_option linter.unnecessarySeqFocus false
+set_option linter.tacticAnalysis.introMerge false
 
 namespace LoVe
 
@@ -62,7 +64,14 @@ end MonolithicGroup
 | `AddMonoid`（加法幺半群）  | 带有单位元 `0` 的 `AddSemigroup`           | `ℝ`, `ℚ`, `ℤ`, `ℕ`
 | `AddLeftCancelSemigroup`（左消加法半群） | 满足 `c + a = c + b → a = b` 的 `AddSemigroup` | `ℝ`, `ℚ`, `ℤ`, `ℕ`
 | `AddRightCancelSemigroup`（右消加法半群） | 满足 `a + c = b + c → a = b` 的 `AddSemigroup` | `ℝ`, `ℚ`, `ℤ`, `ℕ`
-| `AddGroup`（加法群）       | 带有逆元 `-` 的 `AddMonoid`                | `ℝ`, `ℚ`, `ℤ` -/ Type
+| `AddGroup`（加法群）       | 带有逆元 `-` 的 `AddMonoid`                | `ℝ`, `ℚ`, `ℤ` -/
+
+#print Group
+#print AddGroup
+
+/- 接下来我们定义一个自己的类型，用来表示模 2 整数，并把它声明为加法群的实例 -/
+
+inductive Int2 : Type where
   | zero
   | one
 
@@ -138,7 +147,13 @@ instance List.AddMonoid {α : Type} : AddMonoid (List α) :=
 `Ring`          | `Monoid` 和 `AddCommGroup`，且满足分配律             | `ℝ`, `ℚ`, `ℤ`
 `CommRing`      | `Ring`，且乘法 `*` 满足交换律                        | `ℝ`, `ℚ`, `ℤ`
 `DivisionRing`  | `Ring`，且具有乘法逆元 `⁻¹`                          | `ℝ`, `ℚ`
-`Field`         | `DivisionRing`，且乘法 `*` 满足交换律                | `ℝ`, `ℚ` -/2.mul : Int2 → Int2 → Int2
+`Field`         | `DivisionRing`，且乘法 `*` 满足交换律                | `ℝ`, `ℚ` -/
+
+#print Field
+
+/- 继续我们的例子： -/
+
+def Int2.mul : Int2 → Int2 → Int2
   | Int2.one,  a => a
   | Int2.zero, _ => Int2.zero
 
@@ -381,7 +396,7 @@ instance List.length.Preorder {α : Type} : Preorder (List α) :=
       by
         intro xs ys zs
         exact Nat.le_trans
-    lt_iff_le_not_le :=
+    lt_iff_le_not_ge :=
       by
         intro a b
         exact Nat.lt_iff_le_not_le }
