@@ -320,7 +320,7 @@ theorem prop_comp_tactical (a b c : Prop) (hab : a → b)
 * `H t`，它将证明 `H` 的语句中的前导参数或量词实例化为项 `t`，是一个证明。
 * `H G`，它用证明 `G` 来解除 `H` 的语句中的前导假设，是一个证明。
 * `fun h : P ↦ H[h]` 是 `P → Q` 的证明，假设 `H[h]` 是 `Q` 对于 `h : P` 的证明。
-* `fun x : σ ↦ H[x]` 是 `∀x : σ, Q[x]` 的证明，假设 `H[x]` 是 `Q[x]` 对于 `x : σ` 的证明。
+* `fun x : σ ↦ H[x]` 是 `∀x : σ, Q[x]` 的证明，假设 `H[x]` 是 `Q[x]` 对于 `x : σ` 的证明。-/
 theorem And_swap_raw (a b : Prop) :
     a ∧ b → b ∧ a :=
   fun hab : a ∧ b ↦ And.intro (And.right hab) (And.left hab)

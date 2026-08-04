@@ -14,7 +14,9 @@ import LoVe.LoVelib
 
 
 set_option autoImplicit false
-set_option tactic.hygienic false
+set_option linter.unusedVariables false
+set_option linter.unnecessarySeqFocus false
+set_option linter.tacticAnalysis.introMerge false
 
 namespace LoVe
 
@@ -197,7 +199,9 @@ def sum257Do (ns : List ℕ) : Option ℕ :=
 
 ## 单子的类型类
 
-单子是一种数学结构，因此我们使用类将它们添加为类型类。我们可以将类型类视为一个由类型参数化的结构，或者在这里，由类型构造器 `m : Type → Type` 参数化的结构。 -/ype)
+单子是一种数学结构，因此我们使用类将它们添加为类型类。我们可以将类型类视为一个由类型参数化的结构，或者在这里，由类型构造器 `m : Type → Type` 参数化的结构。 -/
+
+class LawfulMonad (m : Type → Type)
   extends Pure m, Bind m where
   pure_bind {α β : Type} (a : α) (f : α → m β) :
     (pure a >>= f) = f a
